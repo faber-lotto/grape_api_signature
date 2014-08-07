@@ -1,7 +1,7 @@
 require 'acceptance_spec_helper'
 require 'thin'
 
-module GrapeApiSignature
+module GrapeAPISignature
   describe AWSRequest, :aws_helpers do
 
     Dir[File.join(Spec::Support::AWSHelper.suite_dir, '*.req')].each do |f|
@@ -12,7 +12,7 @@ module GrapeApiSignature
       let(:region) { 'us-east-1' }
       let(:host) { 'host' }
 
-      let(:subject) { GrapeApiSignature::AWSRequest.new(request.request_method, uri, headers, body) }
+      let(:subject) { GrapeAPISignature::AWSRequest.new(request.request_method, uri, headers, body) }
 
       describe "testcase #{filename}" do
         let(:request_str) { File.read(f).gsub('http/1', 'HTTP/1') }

@@ -4,19 +4,18 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'grape_api_signature/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "grape_api_signature"
-  spec.version       = GrapeApiSignature::VERSION
-  spec.authors       = ["Dieter Späth"]
-  spec.email         = ["d.spaeth@faber.de"]
-  spec.summary       = %q{Add AWS Signature 4 style authentication to grape API's.}
-  spec.description   = %q{Add AWS Signature 4 style authentication to grape API's.}
-  spec.homepage      = ""
-  spec.license       = "MIT"
+  spec.name          = 'grape_api_signature'
+  spec.version       = GrapeAPISignature::VERSION
+  spec.authors       = ['Dieter Späth']
+  spec.email         = ['d.spaeth@faber.de']
+  spec.summary       = "Add AWS Signature 4 style authentication to grape API's."
+  spec.description   = "Add AWS Signature 4 style authentication to grape API's."
+  spec.homepage      = ''
+  spec.license       = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0")
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
-
 
   spec.require_paths = ['lib']
 
@@ -33,7 +32,6 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency 'thin'
   spec.add_development_dependency 'rack-test'
-
 
   spec.add_development_dependency 'rspec', '3.0'
   # show nicely how many specs have to be run

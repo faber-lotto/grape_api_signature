@@ -1,4 +1,4 @@
-module GrapeApiSignature
+module GrapeAPISignature
   class AWSAuthorization
     attr_accessor :access_key,
                   :credential_string,

@@ -3,10 +3,9 @@ require 'rack/auth/abstract/handler'
 require 'rack/auth/abstract/request'
 require 'rack/request'
 
-module GrapeApiSignature
+module GrapeAPISignature
   module Middleware
     class Auth < Rack::Auth::AbstractHandler
-
       attr_accessor :app, :max_request_age, :authenticator, :env
 
       def self.default_authenticator(&block)
@@ -15,7 +14,7 @@ module GrapeApiSignature
         @default_authenticator
       end
 
-      def initialize(app, max_request_age=900, &authenticator)
+      def initialize(app, max_request_age = 900, &authenticator)
         self.app = app
         self.authenticator = authenticator || self.class.default_authenticator
         self.max_request_age = max_request_age
@@ -36,13 +35,11 @@ module GrapeApiSignature
 
         return bad_request unless auth_request.aws4?
 
-
         if valid?
           on_valid
         else
           unauthorized
         end
-
       end
 
       protected
@@ -58,7 +55,6 @@ module GrapeApiSignature
                                     URI(request.url),
                                     auth_request.body,
                                     max_request_age)
-
       end
 
       def auth_request
@@ -86,9 +82,8 @@ module GrapeApiSignature
       end
 
       class AuthRequest < Rack::Auth::AbstractRequest
-
         def aws4?
-          "AWS4-HMAC-SHA256".downcase == scheme.downcase
+          'AWS4-HMAC-SHA256'.downcase == scheme.downcase
         end
 
         def headers
@@ -104,9 +99,7 @@ module GrapeApiSignature
         def body
           @body ||= request.body.read.tap { request.body.rewind }
         end
-
       end
-
     end
   end
 end

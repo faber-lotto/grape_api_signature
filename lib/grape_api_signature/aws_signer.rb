@@ -4,7 +4,7 @@ require 'time'
 require 'uri'
 require 'pathname'
 
-module GrapeApiSignature
+module GrapeAPISignature
   class AWSSigner
     attr_accessor :access_key, :secret_key, :region, :digester
     attr_accessor :request

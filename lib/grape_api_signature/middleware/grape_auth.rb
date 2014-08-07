@@ -3,13 +3,12 @@ require 'rack/auth/abstract/handler'
 require 'rack/auth/abstract/request'
 require 'rack/request'
 
-module GrapeApiSignature
+module GrapeAPISignature
   module Middleware
-    class GrapeAuth < GrapeApiSignature::Middleware::Auth
-
+    class GrapeAuth < GrapeAPISignature::Middleware::Auth
       attr_accessor :user_setter
 
-      def initialize(app, max_request_age=900, user_setter=:'current_user=' ,&authenticator)
+      def initialize(app, max_request_age = 900, user_setter = :'current_user=', &authenticator)
         super(app, max_request_age, &authenticator)
         self.user_setter = user_setter
       end
@@ -34,13 +33,12 @@ module GrapeApiSignature
       end
 
       def unauthorized(www_authenticate = challenge)
-        endpoint.error!({ error: 'Unauthorized' }, 401 , { 'WWW-Authenticate' => www_authenticate.to_s })
+        endpoint.error!({ error: 'Unauthorized' }, 401,  'WWW-Authenticate' => www_authenticate.to_s)
       end
 
       def bad_request
         endpoint.error!({ error: 'Bad Request' }, 400)
       end
-
     end
   end
 end

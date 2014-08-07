@@ -1,7 +1,7 @@
 require 'acceptance_spec_helper'
 require 'thin'
 
-module GrapeApiSignature
+module GrapeAPISignature
   describe AWSSigner, :aws_helpers do
 
     Dir[File.join(Spec::Support::AWSHelper.suite_dir, '*.req')].each do |f|
@@ -14,7 +14,7 @@ module GrapeApiSignature
       let(:host) { 'host' }
 
       let(:subject)do
-        GrapeApiSignature::AWSSigner.new(
+        GrapeAPISignature::AWSSigner.new(
            access_key: id,
            secret_key: secret_key,
            region: region
