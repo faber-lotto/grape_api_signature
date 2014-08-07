@@ -1,0 +1,21 @@
+inherit_from: .rubocop_todo.yml
+
+
+LineLength:
+  Max: 160
+
+Documentation:
+  Enabled: false
+
+ParameterLists:
+  Max: 15
+
+MethodLength:
+  Max: 50
+
+# @see http://www.rubytapas.com/episodes/24-Incidental-Change
+TrailingComma:
+  Enabled: false
+
+RegexpLiteral:
+  Enabled: false
