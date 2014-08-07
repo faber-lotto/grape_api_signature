@@ -137,6 +137,64 @@ This gem provides a coffee script to authenticate swagger demo requests via AWS 
 
 ```
 
+### Standalone RackMiddleware
+
+Example usage:
+
+```ruby
+
+...
+
+max_request_age = 200
+
+use GrapeAPISignature::Middleware::Auth, max_request_age  do |_access_key, _region, _service|
+  user = ... 
+  user.secret_key # different return value as for grape API's return only the key
+end
+
+run app
+
+...
+
+```
+
+### Standalone Authenticator/Signer
+
+Example usage:
+
+```ruby
+
+# Gemfile
+gem 'grape_api_signature', require: 'grape_api_signature/signer_components'
+
+# In your ruby file validate a request
+
+auth = Authorization.new(request_method,
+                         headers,
+                         URI(url),
+                         body,
+                         max_request_age)
+                         
+auth.authentic?(secret_key)
+
+# OR use the signer
+
+signer = GrapeAPISignature::AWSSigner.new(
+          access_key: user_id,
+          secret_key: secret_key,
+          region: authorization.region
+)
+
+signer.signature_only(request_method, uri, headers_to_sign, body)
+
+# OR
+
+signer.sign(request_method, uri, headers_to_sign, body)
+
+```
+
+
+
 ## Contributing
 
 1. Fork it ( https://github.com/faber-lotto/grape_api_signature/fork )
