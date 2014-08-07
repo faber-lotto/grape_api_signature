@@ -6,7 +6,8 @@
 # GrapeAPISignature
 
 `GrapeAPISignature` provides a [AWS 4 style](http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) 
-Authentication middleware to be used with [grape](https://github.com/intridea/grape).
+Authentication middleware to be used with [grape](https://github.com/intridea/grape). It calculates the 
+'AWS4-HMAC-SHA256' style signature and compares it against the `HTTP_AUTHORIZATION` header within the request.
 
 ## Installation
 
