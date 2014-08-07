@@ -1,3 +1,3 @@
-module GrapeApiSignature
-  VERSION = "0.0.1"
+module GrapeAPISignature
+  VERSION = '0.0.1'
 end

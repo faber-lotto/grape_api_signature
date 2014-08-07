@@ -4,7 +4,7 @@ require 'time'
 require 'uri'
 require 'pathname'
 
-module GrapeApiSignature
+module GrapeAPISignature
   class AWSRequest
     RFC8601BASIC = '%Y%m%dT%H%M%SZ'
 
@@ -14,7 +14,7 @@ module GrapeApiSignature
       time.utc.strftime(RFC8601BASIC)
     end
 
-    def initialize(method, uri, headers, body, digester = GrapeApiSignature::AWSDigester)
+    def initialize(method, uri, headers, body, digester = GrapeAPISignature::AWSDigester)
       self.method = method.upcase
       self.uri = uri
       self.headers = headers.each_with_object({}) { |(key, value), result_hash| result_hash[key.downcase] = value.strip }

@@ -3,15 +3,15 @@ require 'rack/test'
 
 feature 'Authorize a request' do
   include Rack::Test::Methods
-  include Spec::Support::API
+  include GrapeAPISignature::RSpec
 
-  let(:base_app) { ->(env) { [200, env, "app"] } }
+  let(:base_app) { ->(env) { [200, env, 'app'] } }
 
   let(:app) do
     app = base_app
     key = secret_key
     Rack::Builder.app do
-      use GrapeApiSignature::Middleware::Auth do |*|
+      use GrapeAPISignature::Middleware::Auth do |*|
         key
       end
       run app
@@ -21,10 +21,9 @@ feature 'Authorize a request' do
   let(:secret_key) { '12345678' }
   let(:access_key) { 'MyUser' }
 
-
   let(:hostname) { Rack::Test::DEFAULT_HOST }
   let(:port) { 80 }
-  let(:host){ "#{hostname}:#{port}" }
+  let(:host) { "#{hostname}:#{port}" }
 
   def https?
     port == 443

@@ -1,4 +1,4 @@
-module GrapeApiSignature
+module GrapeAPISignature
   class AWSAuthParser
     attr_accessor :str, :authorization
 

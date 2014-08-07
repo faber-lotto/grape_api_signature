@@ -4,7 +4,7 @@ require 'time'
 require 'uri'
 require 'pathname'
 
-module GrapeApiSignature
+module GrapeAPISignature
   module AWSDigester
     module_function
 

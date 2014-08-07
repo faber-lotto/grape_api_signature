@@ -1,6 +1,6 @@
 require 'unit_spec_helper'
 
-module GrapeApiSignature
+module GrapeAPISignature
   describe AWSAuthParser do
 
     # rubocop:disable LineLength

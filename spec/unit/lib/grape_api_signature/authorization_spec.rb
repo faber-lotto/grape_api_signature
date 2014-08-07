@@ -1,6 +1,6 @@
 require 'unit_spec_helper'
 
-module GrapeApiSignature
+module GrapeAPISignature
   describe Authorization do
 
     let(:request_method) { 'POST' }
@@ -26,7 +26,7 @@ module GrapeApiSignature
     let(:body) { 'param1=param2, param3, param4' }
 
     subject do
-      GrapeApiSignature::Authorization.new(
+      GrapeAPISignature::Authorization.new(
           request_method,
           headers,
           uri,
@@ -55,7 +55,7 @@ module GrapeApiSignature
       let(:datetime) { Time.now }
 
       subject do
-        GrapeApiSignature::Authorization.new(
+        GrapeAPISignature::Authorization.new(
             request_method,
             headers,
             uri,
