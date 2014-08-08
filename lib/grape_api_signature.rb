@@ -6,6 +6,7 @@ require 'active_support/core_ext'
 module GrapeAPISignature
   require 'grape_api_signature/signer_components'
 
+  require 'grape_api_signature/middleware/auth_request'
   require 'grape_api_signature/middleware/auth'
   require 'grape_api_signature/middleware/grape_auth'
 
