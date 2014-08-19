@@ -140,7 +140,7 @@ do ($=jQuery) ->
         keys.sort().join(';')
 
       is_signable_header: (header)->
-        not_signable_headers = ['authorization', 'content-length', 'user-agent']
+        not_signable_headers = ['authorization', 'content-length', 'content-type' ,'user-agent']
         not_signable_headers.indexOf(header) < 0
 
       dateStamp: ->
