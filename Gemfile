@@ -9,5 +9,3 @@ gem 'rubocop', require: false
 
 gem 'grape', github: 'intridea/grape'
 gem 'grape-entity', github: 'intridea/grape-entity'
-
-
