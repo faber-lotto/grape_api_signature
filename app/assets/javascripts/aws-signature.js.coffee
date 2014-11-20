@@ -21,7 +21,10 @@ do ($=jQuery) ->
         @url = new URL(obj.url)
         @service = @url.hostname.split('.',2)[0]
         @pathname = @url.pathname
-        @search = @query_sorted(@url.searchParams.toString())
+        if @url && @url.searchParams
+          @search = @query_sorted(@url.searchParams.toString())
+        else
+          @search = ''
         @method = obj.method.toUpperCase()
         @req_headers = $.extend({}, obj.headers)
         @body = obj.body ? ''
