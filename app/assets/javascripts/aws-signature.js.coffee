@@ -25,9 +25,7 @@ do ($=jQuery) ->
           @search = @query_sorted(@url.searchParams.toString())
         else
           if @url && @url.search
-            tmp_query = @url.search.toString()
-            tmp_query.replace(/^?/,'')
-            @search = @query_sorted(tmp_query)
+            @search = @query_sorted( @url.search.toString().replace(/^\?/,''))
           else
             @search = ''
         @method = obj.method.toUpperCase()
