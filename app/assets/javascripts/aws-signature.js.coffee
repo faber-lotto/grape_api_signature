@@ -24,7 +24,12 @@ do ($=jQuery) ->
         if @url && @url.searchParams
           @search = @query_sorted(@url.searchParams.toString())
         else
-          @search = ''
+          if @url && @url.search
+            tmp_query = @url.search.toString()
+            tmp_query.replace(/^?/,'')
+            @search = @query_sorted(tmp_query)
+          else
+            @search = ''
         @method = obj.method.toUpperCase()
         @req_headers = $.extend({}, obj.headers)
         @body = obj.body ? ''
