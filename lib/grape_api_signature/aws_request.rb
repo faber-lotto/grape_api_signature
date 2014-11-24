@@ -17,7 +17,7 @@ module GrapeAPISignature
     def initialize(method, uri, headers, body, digester = GrapeAPISignature::AWSDigester)
       self.method = method.upcase
       self.uri = uri
-      self.headers = headers.each_with_object({}) { |(key, value), result_hash| result_hash[key.downcase] = value.strip }
+      self.headers = headers.each_with_object({}) { |(key, value), result_hash| result_hash[key.downcase] = (value || '').strip }
       self.body = body
       self.service = uri.host.split('.', 2)[0]
       self.digester = digester
